@@ -1,6 +1,19 @@
 # sealed_unions_generator
 
 Sealed Unions Generator uses basic annotations to generate the boiler plate for your state models.
+## How to use
+
+pubspec.yaml of your plugin
+
+```yaml
+dependencies:
+  sealed_unions_annotations: ^0.0.1
+    
+    
+dev_dependencies:
+  build_runner: ^1.6.5
+  sealed_unions_generator: ^0.0.1
+```
 
 You write this 
 ```dart

@@ -1,8 +1,8 @@
 name: sealed_unions_generator
 description: Sealed Unions Generator
 version: 0.0.1
-author:
-homepage:
+author: Júlio Cesar Bueno Cotta <juliocbcotta@gmail.com>
+homepage: https://github.com/BugsBunnyBR/sealed_unions_generator.dart
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -12,8 +12,7 @@ dependencies:
   build: ^1.1.5
   source_gen: ^0.9.4
   analyzer: '>=0.37.1 <0.38.2'
-  sealed_unions_annotations:
-    path: ../sealed_unions_annotations
+  sealed_unions_annotations: ^0.0.1
 
 dev_dependencies:
   test: ^1.6.5
