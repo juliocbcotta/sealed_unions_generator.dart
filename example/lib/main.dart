@@ -1,4 +1,4 @@
-import 'package:example/weather_model.dart';
+import 'package:example/model/weather_model.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -42,6 +42,14 @@ class MyHomePage extends StatefulWidget {
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
+}
+
+String widgetBuilder(WeatherState state) {
+  return state.join(
+        (initial) => "Some initial widget",
+        (loading) => "Circular progress indicator",
+        (loaded) => "The temperature is ${loaded.temperature}",
+  );
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -92,6 +100,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(widgetBuilder(WeatherState.initial())),
+            Text(widgetBuilder(WeatherState.loading())),
+            Text(widgetBuilder(WeatherState.loaded(1))),
             Text(
               'You have pushed the button this many times:',
             ),
