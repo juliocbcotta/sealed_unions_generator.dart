@@ -1,0 +1,22 @@
+name: sealed_unions_generator
+description: Sealed Unions Generator
+version: 0.0.1
+author:
+homepage:
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  meta: ^1.1.6
+  build: ^1.1.5
+  source_gen: ^0.9.4
+  analyzer: '>=0.37.1 <0.38.2'
+  sealed_unions_annotations:
+    path: ../sealed_unions_annotations
+
+dev_dependencies:
+  test: ^1.6.5
+  build_test: ^0.10.8
+  build_runner: ^1.6.5
+

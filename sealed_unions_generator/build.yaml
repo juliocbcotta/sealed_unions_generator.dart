@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      sealed_unions_generator|sealed_unions_annotations:
+        enabled: true
+
+builders:
+  sealed_unions_builder:
+    target: ":sealed_unions_generator"
+    import: "package:sealed_unions_generator/sealed_unions_generator.dart"
+    builder_factories: ["sealedUnionsBuilder"]
+    build_extensions: {".dart": ["sealed_unions.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]

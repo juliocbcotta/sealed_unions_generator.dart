@@ -1,0 +1,14 @@
+name: sealed_unions_annotations
+description: Sealed Unions Generator annotations.
+version: 0.0.1
+author:
+homepage:
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  meta: ^1.1.6
+
+dev_dependencies:
+  test: ^1.6.5
