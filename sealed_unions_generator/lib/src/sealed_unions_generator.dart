@@ -22,11 +22,11 @@ class SealedUnionsGenerator extends GeneratorForAnnotation<Seal> {
 
   String declareSeal(
       ClassElement rootElement, Iterable<MethodElement> sealedMethods) {
-    final className = rootElement.displayName;
+
     final generatedClassName = findGeneratedClassName(rootElement.metadata);
     final unions = sealedMethods.map((method) => method.name);
     final sealedClassesNames = sealedMethods
-        .map((method) => declareSealedClassName(className, method))
+        .map((method) => declareSealedClassName(generatedClassName, method))
         .join(',');
     final functionalType = getFunctionalTypeForFactory(unions.length);
     final union = 'Union${unions.length}';
@@ -35,7 +35,7 @@ class SealedUnionsGenerator extends GeneratorForAnnotation<Seal> {
       final methodParameters = declareMethodParams(method.parameters, true);
       final sealedProperties =
           declareSealedPropertiesFromMethodParams(method.parameters);
-      final sealedName = declareSealedClassName(className, method);
+      final sealedName = declareSealedClassName(generatedClassName, method);
       return '''
       class $sealedName {
           $sealedProperties
@@ -47,7 +47,7 @@ class SealedUnionsGenerator extends GeneratorForAnnotation<Seal> {
     int index = 0;
     final factories = sealedMethods.map((method) {
       final methodName = method.displayName;
-      final sealedClassName = declareSealedClassName(className, method);
+      final sealedClassName = declareSealedClassName(generatedClassName, method);
       final methodOrder = declareMethodOrder(index++);
       final methodParameters = declareMethodParams(method.parameters, false);
 
@@ -168,10 +168,7 @@ class SealedUnionsGenerator extends GeneratorForAnnotation<Seal> {
 
   String declareSealedClassName(String className, MethodElement method) {
     final methodName = method.displayName.replaceAll('_', '');
-    return '_' +
-        className +
-        methodName[0].toUpperCase() +
-        methodName.substring(1);
+    return className + methodName[0].toUpperCase() + methodName.substring(1);
   }
 
   ElementAnnotation findAnnotation(

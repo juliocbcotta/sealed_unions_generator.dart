@@ -40,7 +40,6 @@ flutter pub run build_runner build
 
 and the project writes this:
 ```dart
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'weather_model.dart';
@@ -49,41 +48,42 @@ part of 'weather_model.dart';
 // SealedUnionsGenerator
 // **************************************************************************
 
-class WeatherState extends Union3Impl<_WeatherModelInitial,
-    _WeatherModelLoading, _WeatherModelLoaded> {
-  static final Triplet<_WeatherModelInitial, _WeatherModelLoading,
-          _WeatherModelLoaded> _factory =
-      const Triplet<_WeatherModelInitial, _WeatherModelLoading,
-          _WeatherModelLoaded>();
+class WeatherState extends Union3Impl<WeatherStateInitial, WeatherStateLoading,
+    WeatherStateLoaded> {
+  static final Triplet<WeatherStateInitial, WeatherStateLoading,
+          WeatherStateLoaded> _factory =
+      const Triplet<WeatherStateInitial, WeatherStateLoading,
+          WeatherStateLoaded>();
 
   WeatherState._(
-      Union3<_WeatherModelInitial, _WeatherModelLoading, _WeatherModelLoaded>
+      Union3<WeatherStateInitial, WeatherStateLoading, WeatherStateLoaded>
           union)
       : super(union);
 
   factory WeatherState.initial() =>
-      WeatherState._(_factory.first(_WeatherModelInitial()));
+      WeatherState._(_factory.first(WeatherStateInitial()));
 
   factory WeatherState.loading() =>
-      WeatherState._(_factory.second(_WeatherModelLoading()));
+      WeatherState._(_factory.second(WeatherStateLoading()));
 
   factory WeatherState.loaded(int temperature) =>
-      WeatherState._(_factory.third(_WeatherModelLoaded(temperature)));
+      WeatherState._(_factory.third(WeatherStateLoaded(temperature)));
 }
 
-class _WeatherModelInitial {
-  _WeatherModelInitial();
+class WeatherStateInitial {
+  WeatherStateInitial();
 }
 
-class _WeatherModelLoading {
-  _WeatherModelLoading();
+class WeatherStateLoading {
+  WeatherStateLoading();
 }
 
-class _WeatherModelLoaded {
+class WeatherStateLoaded {
   final int temperature;
 
-  _WeatherModelLoaded(this.temperature);
+  WeatherStateLoaded(this.temperature);
 }
+
 
 ```
 
